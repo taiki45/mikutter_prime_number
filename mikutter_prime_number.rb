@@ -7,10 +7,6 @@ Plugin.create :mikutter_prime_number do
     end
   end
 
-  def tell(msg)
-    ::Plugin.call(:update, nil, [Message.new(message: msg, system: true)])
-  end
-
   on_update do |service, msgs|
     msgs.each do |msg|
       if num = has_prime?(msg)
